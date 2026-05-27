@@ -1,0 +1,25 @@
+[project]
+name = "gemini-ml-service"
+version = "0.1.0"
+description = "Building an ML service with Gemini"
+authors = [
+    {name = "Justin Gutter",email = "jgutter7@gmail.com"}
+]
+requires-python = ">=3.13"
+dependencies = [
+    "scikit-learn (>=1.8.0,<2.0.0)",
+    "pydantic (>=2.13.4,<3.0.0)",
+    "fastapi (>=0.136.3,<0.137.0)",
+    "uvicorn (>=0.47.0,<0.48.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pytest (>=9.0.3,<10.0.0)",
+    "ruff (>=0.15.14,<0.16.0)"
+]

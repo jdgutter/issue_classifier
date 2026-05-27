@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Testing & Linting
+.pytest_cache/
+.coverage
+.ruff_cache/
+
+# Data & Models (Crucial for ML projects)
+*.csv
+data/
+mlruns/
+*.pkl
+*.joblib
+
+# Environments
+.env
+.venv/
+venv/
