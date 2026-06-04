@@ -1,5 +1,5 @@
-from ingestion import read_github_issues_csv
-from schema import GithubIssue
+from src.ingestion import read_github_issues_csv
+from src.schema import GithubIssue
 from pydantic import ValidationError
 from typing import Iterator
 

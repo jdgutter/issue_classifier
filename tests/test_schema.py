@@ -1,5 +1,5 @@
 import pytest
-from schema import JSONDocument, GithubIssue
+from src.schema import JSONDocument, GithubIssue
 from pydantic import ValidationError
 
 def test_json_document_validation_fails_on_empty_payload():

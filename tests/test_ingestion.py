@@ -1,5 +1,5 @@
 import pytest
-from ingestion import read_github_issues_csv
+from src.ingestion import read_github_issues_csv
 
 def test_read_github_issues_csv(tmp_path):
     # Create a mock CSV file using pytest's built-in tmp_path fixture
