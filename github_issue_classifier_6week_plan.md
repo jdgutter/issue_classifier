@@ -83,11 +83,11 @@ Assuming an allocation of approximately **10 hours per week**, each week focuses
 * [x] **Task 1 (4 hrs): Framework Setup & Endpoint Definition**
     * [x] Create a new `FastAPI` application within your repository. 
     * [x] Define a `POST /predict` endpoint that accepts a incoming JSON payload formatted strictly according to your established `GithubIssue` schema.
-* **Task 2 (3 hrs): Optimized State Management**
-    * Write a startup lifecycle event handler in FastAPI to load your saved model artifact from Week 3 into memory, preventing expensive disk reads on subsequent network requests.
+* [x] **Task 2 (3 hrs): Optimized State Management**
+    * [x] Write a startup lifecycle event handler in FastAPI to load your saved model artifact from Week 3 into memory, preventing expensive disk reads on subsequent network requests.
 * **Task 3 (3 hrs): E2E Prediction & Interface Testing**
-    * Connect the route handler to the in-memory model to return inferences. 
-    * Test the endpoint locally using `curl` or FastAPI's auto-generated interactive Swagger UI (`/docs`).
+    * [x] Connect the route handler to the in-memory model to return inferences. 
+    * [x] Test the endpoint locally using `curl` or FastAPI's auto-generated interactive Swagger UI (`/docs`).
 
 ---
 
