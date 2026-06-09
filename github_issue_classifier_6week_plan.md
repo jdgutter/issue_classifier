@@ -34,12 +34,12 @@ Assuming an allocation of approximately **10 hours per week**, each week focuses
 * **Transferable Skills:** Data validation, error handling, standard Python data manipulation.
 
 ### Weekly Tasks
-* **Task 1 (3 hrs): Data Extraction Foundation**
+- [X] **Task 1 (3 hrs): Data Extraction Foundation**
     * Write a data ingestion script using the built-in `csv` module or `pandas` to read `smaller.csv`.
-* **Task 2 (4 hrs): Runtime Validation & Error Handling**
+- [X] **Task 2 (4 hrs): Runtime Validation & Error Handling**
     * Iterate over the loaded rows and pass them through your `GithubIssue` Pydantic schema. 
     * Write defensive logic to handle validation errors gracefully (e.g., log the errors and drop the bad rows, rather than letting the script crash).
-* **Task 3 (3 hrs): Verification & Mocking**
+- [X] **Task 3 (3 hrs): Verification & Mocking**
     * Expand `test.py` to robustly test the ingestion script. 
     * Mock a small CSV within your tests to ensure your script correctly separates valid rows from malformed ones.
 
@@ -50,13 +50,13 @@ Assuming an allocation of approximately **10 hours per week**, each week focuses
 * **Transferable Skills:** Avoiding data leakage, feature engineering, pipeline construction.
 
 ### Weekly Tasks
-* **Task 1 (3 hrs): Custom Transformers**
-    * Define a custom Scikit-Learn `BaseEstimator` and `TransformerMixin` (such as a `JSONFlattener`) that takes your validated Pydantic objects and extracts the feature body string.
-* **Task 2 (4 hrs): Pipeline Construction**
-    * Create an end-to-end `sklearn.pipeline.Pipeline`. 
-    * Combine your custom transformer, a `TfidfVectorizer` (for text feature extraction), and a basic classifier like `LogisticRegression` or `RandomForestClassifier`.
-* **Task 3 (3 hrs): Functional Training Run**
-    * Write a straightforward execution/training script that feeds the clean, validated data from Week 1 into this pipeline and prints out the initial evaluation accuracy.
+* [x] **Task 1 (3 hrs): Custom Transformers**
+    * [x] Define a custom Scikit-Learn `BaseEstimator` and `TransformerMixin` (such as a `JSONFlattener`) that takes your validated Pydantic objects and extracts the feature body string.
+* [x] **Task 2 (4 hrs): Pipeline Construction**
+    * [x] Create an end-to-end `sklearn.pipeline.Pipeline`. 
+    * [x] Combine your custom transformer, a `TfidfVectorizer` (for text feature extraction), and a basic classifier like `LogisticRegression` or `RandomForestClassifier`.
+* [x] **Task 3 (3 hrs): Functional Training Run**
+    * [x] Write a straightforward execution/training script that feeds the clean, validated data from Week 1 into this pipeline and prints out the initial evaluation accuracy.
 
 ---
 
@@ -65,13 +65,13 @@ Assuming an allocation of approximately **10 hours per week**, each week focuses
 * **Transferable Skills:** MLOps lifecycle, model registries, experiment tracking, quantitative metric evaluation.
 
 ### Weekly Tasks
-* **Task 1 (3 hrs): Data Splitting Best Practices**
-    * Update your training script to properly split your dataset into distinct training and testing sets using `train_test_split` to ensure unbiased evaluations.
-* **Task 2 (4 hrs): Experiment Tracking Instrumentation**
-    * Integrate `MLflow` into your training workflow. 
-    * Log key hyperparameters (such as the `max_features` parameter of your TF-IDF vectorizer or `n_estimators` for the Random Forest).
-* **Task 3 (3 hrs): Artifact Serialization**
-    * Log evaluation metrics (`F1-score`, `Precision`, `Recall`) and register the trained Scikit-learn pipeline as a versioned artifact (`.pkl` or `.joblib` file) using MLflow's tracking API.
+* [x] **Task 1 (3 hrs): Data Splitting Best Practices**
+    * [x] Update your training script to properly split your dataset into distinct training and testing sets using `train_test_split` to ensure unbiased evaluations.
+* [x] **Task 2 (4 hrs): Experiment Tracking Instrumentation**
+    * [x] Integrate `MLflow` into your training workflow. 
+    * [x]Log key hyperparameters (such as the `max_features` parameter of your TF-IDF vectorizer or `n_estimators` for the Random Forest).
+* [x] **Task 3 (3 hrs): Artifact Serialization**
+    * [x] Log evaluation metrics (`F1-score`, `Precision`, `Recall`) and register the trained Scikit-learn pipeline as a versioned artifact (`.pkl` or `.joblib` file) using MLflow's tracking API.
 
 ---
 
