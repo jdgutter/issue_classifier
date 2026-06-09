@@ -80,9 +80,9 @@ Assuming an allocation of approximately **10 hours per week**, each week focuses
 * **Transferable Skills:** REST APIs, Model Serving infrastructure, web framework integration.
 
 ### Weekly Tasks
-* **Task 1 (4 hrs): Framework Setup & Endpoint Definition**
-    * Create a new `FastAPI` application within your repository. 
-    * Define a `POST /predict` endpoint that accepts a incoming JSON payload formatted strictly according to your established `GithubIssue` schema.
+* [x] **Task 1 (4 hrs): Framework Setup & Endpoint Definition**
+    * [x] Create a new `FastAPI` application within your repository. 
+    * [x] Define a `POST /predict` endpoint that accepts a incoming JSON payload formatted strictly according to your established `GithubIssue` schema.
 * **Task 2 (3 hrs): Optimized State Management**
     * Write a startup lifecycle event handler in FastAPI to load your saved model artifact from Week 3 into memory, preventing expensive disk reads on subsequent network requests.
 * **Task 3 (3 hrs): E2E Prediction & Interface Testing**
