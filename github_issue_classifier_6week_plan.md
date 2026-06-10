@@ -96,14 +96,14 @@ Assuming an allocation of approximately **10 hours per week**, each week focuses
 * **Transferable Skills:** Docker environments, build optimization, environment reproducibility.
 
 ### Weekly Tasks
-* **Task 1 (3 hrs): Dockerfile Architecture**
-    * Write a multi-stage or standard `Dockerfile` for your project. 
-    * Select a lightweight, production-grade Python base image (e.g., `python:3.13-slim`).
-* **Task 2 (4 hrs): Layer Optimization & Build Instructions**
-    * Configure the Dockerfile layers to install Poetry, copy your `pyproject.toml` and `poetry.lock` manifests, install required runtime dependencies, copy over your model binary, and start the FastAPI gateway via `uvicorn`.
-* **Task 3 (3 hrs): Image Build & Local Verification**
-    * Build the image locally (`docker build -t issue-classifier:latest .`) and execute it (`docker run`). 
-    * Debug any underlying file path resolutions or missing system dependencies that manifest during containment.
+* [x] **Task 1 (3 hrs): Dockerfile Architecture**
+    * [x] Write a multi-stage or standard `Dockerfile` for your project. 
+    * [x] Select a lightweight, production-grade Python base image (e.g., `python:3.13-slim`).
+* [x] **Task 2 (4 hrs): Layer Optimization & Build Instructions**
+    * [x] Configure the Dockerfile layers to install Poetry, copy your `pyproject.toml` and `poetry.lock` manifests, install required runtime dependencies, copy over your model binary, and start the FastAPI gateway via `uvicorn`.
+* [x] **Task 3 (3 hrs): Image Build & Local Verification**
+    * [x] Build the image locally (`docker build -t issue-classifier:latest .`) and execute it (`docker run`). 
+    * [x] Debug any underlying file path resolutions or missing system dependencies that manifest during containment.
 
 ---
 
