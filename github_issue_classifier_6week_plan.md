@@ -115,9 +115,9 @@ Assuming an allocation of approximately **10 hours per week**, each week focuses
 * [x] **Task 1 (4 hrs): Integration Test Suite**
     * [x] Utilize FastAPI's `TestClient` to write end-to-end integration tests inside `test.py`. 
     * [x] Verify that passing a healthy payload to `/predict` returns a `200 OK` along with a prediction string, while malformed inputs securely trigger a `422 Validation Error`.
-* **Task 2 (4 hrs): GitHub Actions Workflow Configuration**
-    * Create a custom `.github/workflows/ci.yml` orchestration file. 
-    * Configure GitHub Actions runners to check out code, cache and install Poetry environments, and run your `pytest` suite on every push or pull request to the `main` branch.
+* [x] **Task 2 (4 hrs): GitHub Actions Workflow Configuration**
+    * [x] Create a custom `.github/workflows/ci.yml` orchestration file. 
+    * [x] Configure GitHub Actions runners to check out code, cache and install Poetry environments, and run your `pytest` suite on every push or pull request to the `main` branch.
 * **Task 3 (2 hrs): Automated Quality Gates**
     * Add an automated step to your CI regression pipeline to execute `ruff` to strictly enforce code formatting consistency and catch linting errors.
 

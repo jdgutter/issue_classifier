@@ -1,4 +1,3 @@
-import pytest
 from src.ingestion import read_github_issues_csv
 
 def test_read_github_issues_csv(tmp_path):
