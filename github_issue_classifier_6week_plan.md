@@ -102,7 +102,7 @@ Assuming an allocation of approximately **10 hours per week**, each week focuses
 * [x] **Task 2 (4 hrs): Layer Optimization & Build Instructions**
     * [x] Configure the Dockerfile layers to install Poetry, copy your `pyproject.toml` and `poetry.lock` manifests, install required runtime dependencies, copy over your model binary, and start the FastAPI gateway via `uvicorn`.
 * [x] **Task 3 (3 hrs): Image Build & Local Verification**
-    * [x] Build the image locally (`docker build -t issue-classifier:latest .`) and execute it (`docker run`). 
+    * [x] Build the image locally (`docker build -t issue-classifier:latest .`) and execute it (`docker run -p 8000:8000 issue-classifier:latest`). 
     * [x] Debug any underlying file path resolutions or missing system dependencies that manifest during containment.
 
 ---
@@ -112,9 +112,9 @@ Assuming an allocation of approximately **10 hours per week**, each week focuses
 * **Transferable Skills:** Continuous Integration pipelines, automated integration testing, GitHub Actions workflows.
 
 ### Weekly Tasks
-* **Task 1 (4 hrs): Integration Test Suite**
-    * Utilize FastAPI's `TestClient` to write end-to-end integration tests inside `test.py`. 
-    * Verify that passing a healthy payload to `/predict` returns a `200 OK` along with a prediction string, while malformed inputs securely trigger a `422 Validation Error`.
+* [x] **Task 1 (4 hrs): Integration Test Suite**
+    * [x] Utilize FastAPI's `TestClient` to write end-to-end integration tests inside `test.py`. 
+    * [x] Verify that passing a healthy payload to `/predict` returns a `200 OK` along with a prediction string, while malformed inputs securely trigger a `422 Validation Error`.
 * **Task 2 (4 hrs): GitHub Actions Workflow Configuration**
     * Create a custom `.github/workflows/ci.yml` orchestration file. 
     * Configure GitHub Actions runners to check out code, cache and install Poetry environments, and run your `pytest` suite on every push or pull request to the `main` branch.
