@@ -22,6 +22,11 @@ class GithubIssue(BaseModel):
     issue_title: str = Field(..., description="The title of the GitHub issue")
     body: str = Field(..., description="The detailed body/description of the issue")
 
+    user_historical_clicks: int = Field(default=0, description="Simulated count of historical user clicks")
+    repo_popularity_score: float = Field(default=0.0, description="Simulated repository popularity score [0.0 - 1.0]")
+    time_since_opened: float = Field(default=0.0, description="Simulated hours since the issue was opened")
+    issue_tags_encoded: list[int] = Field(default_factory=list, description="Encoded categorical list of issue tags")
+
     @field_validator('body')
     @classmethod
     def check_body_not_empty(cls, v: str) -> str:

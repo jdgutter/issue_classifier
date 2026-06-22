@@ -1,4 +1,5 @@
 from src.ingestion import read_github_issues_csv
+from src.augmentation import augment_issue 
 from src.schema import GithubIssue
 from pydantic import ValidationError
 from typing import Iterator
@@ -10,7 +11,8 @@ def validate_github_issues(csv_file: str) -> Iterator[GithubIssue]:
             try:
                 # Unpack the dictionary directly into the Pydantic model
                 issue = GithubIssue(**row)
-                yield issue
+                augmented_issue = augment_issue(issue)
+                yield augmented_issue
             except ValidationError as e:
                 # Defensive logic to gracefully handle validation errors
                 # We log the error and effectively drop the bad row
