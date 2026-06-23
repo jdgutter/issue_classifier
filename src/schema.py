@@ -26,6 +26,7 @@ class GithubIssue(BaseModel):
     repo_popularity_score: float = Field(default=0.0, description="Simulated repository popularity score [0.0 - 1.0]")
     time_since_opened: float = Field(default=0.0, description="Simulated hours since the issue was opened")
     issue_tags_encoded: list[int] = Field(default_factory=list, description="Encoded categorical list of issue tags")
+    embedding: Optional[list[float]] = Field(default=None, description="N-dimensional dense vector embedding")
 
     @field_validator('body')
     @classmethod

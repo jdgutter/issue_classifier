@@ -11,9 +11,9 @@ This **4-Week Extension Plan** builds directly on top of your containerized Fast
 ### Weekly Tasks
 - [X] **Task 1: Multi-Signal Data Augmentation**
     * Update your data pipeline to inject simulated metadata signals alongside the raw text (e.g., `user_historical_clicks`, `issue_tags_encoded`, `repo_popularity_score`, `time_since_opened`).
-- [ ] **Task 2: Dense Embedding Generation**
+- [X] **Task 2: Dense Embedding Generation**
     * Integrate a lightweight pre-trained sentence transformer model (via Hugging Face `transformers` or `sentence-transformers`) to convert raw GitHub issue titles and descriptions into $N$-dimensional dense vector embeddings.
-- [ ] **Task 3: Vector Storage Foundation**
+- [X] **Task 3: Vector Storage Foundation**
     * Set up a local vector index instance using an open-source library like **FAISS** or **ChromaDB**. Write a pipeline script to populate this index with your generated issue embeddings linked to their unique database IDs.
 
 ---
