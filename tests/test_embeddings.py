@@ -1,4 +1,3 @@
-import pytest
 from src.schema import GithubIssue
 from src.embeddings import IssueEmbedder
 
