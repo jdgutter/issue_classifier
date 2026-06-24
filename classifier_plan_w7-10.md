@@ -23,7 +23,7 @@ This **4-Week Extension Plan** builds directly on top of your containerized Fast
 * **Core Skills:** Candidate generation (Retrieval), heavy scoring models (Ranking), multi-stage prediction pipelines.
 
 ### Weekly Tasks
-- [ ] **Task 1: Stage 1 Pipeline – Candidate Retrieval**
+- [X] **Task 1: Stage 1 Pipeline – Candidate Retrieval**
     * Build a "Retrieval" module that takes an incoming user request or issue embedding, performs an Approximate Nearest Neighbors (ANN) search via your vector index, and rapidly prunes the total dataset down to a subset of the top 50 candidate issues.
 - [ ] **Task 2: Stage 2 Pipeline – Candidate Ranking**
     * Train a specialized ranking model (such as a `LightGBM` Ranker or a deep cross-network using PyTorch/Scikit-Learn) that ingests the 50 candidate items and uses the user-creator metadata signals from Week 7 to calculate a precise personalization probability score.
