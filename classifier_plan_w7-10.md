@@ -27,7 +27,7 @@ This **4-Week Extension Plan** builds directly on top of your containerized Fast
     * Build a "Retrieval" module that takes an incoming user request or issue embedding, performs an Approximate Nearest Neighbors (ANN) search via your vector index, and rapidly prunes the total dataset down to a subset of the top 50 candidate issues.
 - [X] **Task 2: Stage 2 Pipeline – Candidate Ranking**
     * Train a specialized ranking model (such as a `LightGBM` Ranker or a deep cross-network using PyTorch/Scikit-Learn) that ingests the 50 candidate items and uses the user-creator metadata signals from Week 7 to calculate a precise personalization probability score.
-- [ ] **Task 3: System Integration & Verification**
+- [X] **Task 3: System Integration & Verification**
     * Wire Stage 1 and Stage 2 together into a single cohesive pipeline class. Verify that passing an input query triggers a sequential candidate generation and downstream ranking phase, outputting a sorted list of recommendations.
 
 ---
