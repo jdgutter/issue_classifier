@@ -37,9 +37,13 @@ A production-grade Machine Learning service that classifies GitHub issues. This 
    ```bash
    poetry install
    ```
-3. Run the FastAPI development server:
+3. Run model training to generate the baseline classifier:
    ```bash
-   poetry run uvicorn app:app --reload
+   poetry run python src/training/train.py
+   ```
+4. Run the FastAPI development server:
+   ```bash
+   poetry run uvicorn src.api.app:app --reload
    ```
    The API will be available at `http://127.0.0.1:8000`. You can view the interactive Swagger documentation at `http://127.0.0.1:8000/docs`.
 
@@ -55,6 +59,16 @@ You can easily build and run the application in a completely isolated container.
    ```bash
    docker run -p 8000:8000 issue-classifier:latest
    ```
+
+## 📊 Experiment Tracking (MLflow)
+
+To track experiments, logged metrics, parameters, and register model artifact versions:
+
+1. Launch the local MLflow UI dashboard:
+   ```bash
+   poetry run mlflow ui
+   ```
+2. Open `http://127.0.0.1:5000` in your web browser to review training histories, evaluate metrics comparisons, and inspect generated files (e.g. `pipeline.joblib`).
 
 ## 🧪 Usage / API Reference
 
@@ -78,7 +92,7 @@ curl -X 'POST' \
 Run the integration tests and linter locally:
 ```bash
 # Run tests
-poetry run pytest test.py -v
+poetry run pytest -v
 
 # Run Ruff linter
 poetry run ruff check .
