@@ -11,9 +11,10 @@ class IssueVectorIndex:
     Manages a local FAISS vector index alongside serialized document metadata 
     to retrieve similar GitHub issues based on dense vector embeddings.
     """
-    def __init__(self, index_path: str = "data/index.faiss", metadata_path: str = "data/issues_metadata.json"):
-        self.index_path = index_path
-        self.metadata_path = metadata_path
+    def __init__(self, index_path: str = None, metadata_path: str = None):
+        from src.config import settings
+        self.index_path = index_path or str(settings.FAISS_INDEX_PATH)
+        self.metadata_path = metadata_path or str(settings.FAISS_METADATA_PATH)
         self.index = None
         self.issues: List[GithubIssue] = []
 

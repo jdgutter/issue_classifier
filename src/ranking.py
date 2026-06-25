@@ -99,8 +99,13 @@ class IssueRankingModel(nn.Module):
     Deep candidate ranking model mapping sparse categorical tags, standardized
     continuous metadata, and dense text embeddings into a personalized click probability.
     """
-    def __init__(self, num_tags: int = 10, tag_embed_dim: int = 8, embedding_dim: int = 384):
+    def __init__(self, num_tags: int = None, tag_embed_dim: int = None, embedding_dim: int = None):
         super().__init__()
+        from src.config import settings
+        num_tags = num_tags or settings.NUM_CATEGORICAL_TAGS
+        tag_embed_dim = tag_embed_dim or settings.CATEGORICAL_TAG_EMBED_DIM
+        embedding_dim = embedding_dim or settings.EMBEDDING_DIMENSION
+        
         self.tag_embeddings = nn.Embedding(num_tags, tag_embed_dim)
         
         # Dimensions: 3 (continuous) + 2 * tag_embed_dim (categorical embeddings) + 384 (text embedding)
@@ -141,12 +146,14 @@ class IssueRankingModel(nn.Module):
 def train_ranking_model(
     issues: List[GithubIssue],
     embedder: IssueEmbedder,
-    model_path: str = "data/ranking_model.pt",
+    model_path: str = None,
     epochs: int = 10,
     batch_size: int = 8,
     lr: float = 0.001
 ) -> IssueRankingModel:
     """Trains the ranking network using BCEWithLogitsLoss and saves the artifact to disk."""
+    from src.config import settings
+    model_path = model_path or str(settings.RANKER_MODEL_PATH)
     dataset = IssueRankingDataset(issues, embedder)
     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
     
@@ -173,9 +180,9 @@ def train_ranking_model(
     state = {
         "model_state_dict": model.state_dict(),
         "scaling_stats": dataset.get_scaling_stats(),
-        "num_tags": 10,
-        "tag_embed_dim": 8,
-        "embedding_dim": 384
+        "num_tags": settings.NUM_CATEGORICAL_TAGS,
+        "tag_embed_dim": settings.CATEGORICAL_TAG_EMBED_DIM,
+        "embedding_dim": settings.EMBEDDING_DIMENSION
     }
     torch.save(state, model_path)
     print(f"Saved ranking model to {model_path}")

@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from src.app import app
+from src.api.app import app
 from unittest.mock import patch
 
 @patch("joblib.load")

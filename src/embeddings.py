@@ -7,10 +7,11 @@ class IssueEmbedder:
     A class to handle the dense embedding generation for GitHub issues
     using the sentence-transformers library.
     """
-    def __init__(self, model_name: str = "all-MiniLM-L6-v2"):
-        self.model_name = model_name
+    def __init__(self, model_name: str = None):
+        from src.config import settings
+        self.model_name = model_name or settings.SENTENCE_TRANSFORMER_MODEL
         # SentenceTransformer loads the pre-trained weights
-        self.model = SentenceTransformer(model_name)
+        self.model = SentenceTransformer(self.model_name)
 
     def embed_text(self, texts: List[str]) -> List[List[float]]:
         """

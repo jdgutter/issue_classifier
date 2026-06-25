@@ -7,7 +7,11 @@ from sklearn.model_selection import train_test_split
 from src.validate import validate_github_issues
 from src.pipeline import create_model_pipeline
 
-def run_training(csv_path: str):
+from src.config import settings
+
+def run_training(csv_path: str = None):
+    if csv_path is None:
+        csv_path = str(settings.RAW_CSV_PATH)
     print(f"Loading and validating data from {csv_path}...")
     
     # 1. Load validated Pydantic objects 
@@ -79,13 +83,14 @@ def run_training(csv_path: str):
         print(f"F1 Score:          {f1:.4f}")
         
         # Serialize the pipeline and register it as an MLflow artifact
-        print("Serializing and registering pipeline artifact...")
-        joblib.dump(pipeline, "pipeline.joblib")
-        mlflow.log_artifact("pipeline.joblib")
+        print(f"Serializing and registering pipeline artifact to {settings.CLASSIFIER_PATH}...")
+        os.makedirs(os.path.dirname(settings.CLASSIFIER_PATH), exist_ok=True)
+        joblib.dump(pipeline, settings.CLASSIFIER_PATH)
+        mlflow.log_artifact(str(settings.CLASSIFIER_PATH))
 
 if __name__ == "__main__":
-    csv_file = "data/raw/smaller.csv"
+    csv_file = str(settings.RAW_CSV_PATH)
     if not os.path.exists(csv_file):
-        print(f"Warning: '{csv_file}' not found in the current directory.")
+        print(f"Warning: '{csv_file}' not found.")
         
     run_training(csv_file)
