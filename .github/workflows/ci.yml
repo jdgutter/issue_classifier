@@ -43,4 +43,4 @@ jobs:
         run: poetry run ruff check .
 
       - name: Run Integration Tests
-        run: poetry run pytest test.py -v
+        run: poetry run pytest -v

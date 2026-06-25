@@ -1,13 +1,19 @@
 from fastapi.testclient import TestClient
-from app import app
+from src.app import app
+from unittest.mock import patch
 
-def test_predict_healthy_payload():
+@patch("joblib.load")
+def test_predict_healthy_payload(mock_load):
     """Verify that a well-formed payload returns a 200 OK and a valid prediction."""
     healthy_payload = {
         "issue_title": "Bug: Application crashes on login",
         "body": "Whenever I try to log in, the application throws a NullPointerException and closes.",
         "issue_url": "https://github.com/fake/repo/issues/1"
     }
+
+    # Setup dummy mock model behavior
+    mock_model = mock_load.return_value
+    mock_model.predict.return_value = ["bug"]
     
     # Using TestClient in a 'with' block triggers the app's lifespan handler 
     # so the ML model actually gets loaded into memory.
