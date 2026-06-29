@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/inference_engine.dir/inference_engine.cpp.o -o inference_engine  /opt/homebrew/lib/libonnxruntime.dylib

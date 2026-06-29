@@ -41,7 +41,7 @@ This **4-Week Extension Plan** builds directly on top of your containerized Fast
     * Convert your trained Week 8 Ranking model into an **ONNX (Open Neural Network Exchange)** format file (`.onnx`), ensuring all inputs, outputs, and layer shapes are strictly defined.
 - [X] **Task 2: Native C++ Execution Engine**
     * Write a standalone C++ script (`inference_engine.cpp`) that utilizes the `ONNX Runtime C++ API`. The script should load your `.onnx` model file, accept an array/vector of feature inputs, execute the forward tensor pass natively, and return the predicted tensor.
-- [ ] **Task 3: Python-C++ Binding (`pybind11`)**
+- [X] **Task 3: Python-C++ Binding (`pybind11`)**
     * Implement a lightweight bridge using `pybind11` to compile your C++ engine into a shared library module (`.so` or `.pyd`) that can be imported directly into Python.
     * Update your FastAPI app (`main.py`) to swap out the Python ranking execution engine for this compiled native wrapper.
 

@@ -19,6 +19,8 @@ dependencies = [
     "onnxruntime (>=1.27.0,<2.0.0)",
     "onnxscript (>=0.7.0,<0.8.0)",
     "pytest (>=9.1.1,<10.0.0)",
+    "pybind11 (>=3.0.4,<4.0.0)",
+    "cmake (>=4.3.4,<5.0.0)",
 ]
 
 [tool.poetry]

@@ -43,7 +43,7 @@ A production-grade Machine Learning service that classifies GitHub issues. This 
    ```
 4. Run the FastAPI development server:
    ```bash
-   poetry run uvicorn src.api.app:app --reload
+   poetry run python -m uvicorn src.api.app:app --reload
    ```
    The API will be available at `http://127.0.0.1:8000`. You can view the interactive Swagger documentation at `http://127.0.0.1:8000/docs`.
 
