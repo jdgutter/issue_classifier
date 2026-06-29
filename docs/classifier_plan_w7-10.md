@@ -37,7 +37,7 @@ This **4-Week Extension Plan** builds directly on top of your containerized Fast
 * **Core Skills:** C++ inference runtimes, ONNX serialization, Python/C++ interoperability via bindings.
 
 ### Weekly Tasks
-- [ ] **Task 1: Model Export & Serialization**
+- [X] **Task 1: Model Export & Serialization**
     * Convert your trained Week 8 Ranking model into an **ONNX (Open Neural Network Exchange)** format file (`.onnx`), ensuring all inputs, outputs, and layer shapes are strictly defined.
 - [ ] **Task 2: Native C++ Execution Engine**
     * Write a standalone C++ script (`inference_engine.cpp`) that utilizes the `ONNX Runtime C++ API`. The script should load your `.onnx` model file, accept an array/vector of feature inputs, execute the forward tensor pass natively, and return the predicted tensor.
