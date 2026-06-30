@@ -1,11 +1,9 @@
-import torch
 from src.schema import GithubIssue
 from src.embeddings import IssueEmbedder
 from src.vector_index import IssueVectorIndex
 from src.retrieval import CandidateRetriever
 from src.ranking import IssueRankingModel
 from src.recommender import TwoStageRecommender
-from src.training.export_onnx import export_to_onnx
 from unittest.mock import MagicMock, patch
 
 def test_recommender_e2e_pipeline(tmp_path):
