@@ -52,7 +52,7 @@ This **4-Week Extension Plan** builds directly on top of your containerized Fast
 * **Core Skills:** Quantization, CPU/Memory profiling, regression latency tracking, MLOps metrics verification.
 
 ### Weekly Tasks
-- [ ] **Task 1: Post-Training Model Quantization**
+- [X] **Task 1: Post-Training Model Quantization**
     * Apply quantization techniques to your ONNX model to compress your network weights (e.g., converting 32-bit floating-point weights down to 8-bit integers (`INT8`)), optimizing execution speed and memory footprints.
 - [ ] **Task 2: Hardware Level Profiling & Latency Tracking**
     * Treat the pipeline as a physical system bottleneck: Use system profiling utilities (like Linux `perf`, `gprof`, or `valgrind`) to analyze your C++ inference execution. Document the memory consumption, CPU utilization, and tail latencies ($p50$, $p95$, $p99$).
