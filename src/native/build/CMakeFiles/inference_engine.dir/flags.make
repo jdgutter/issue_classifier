@@ -6,7 +6,7 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/opt/homebrew/include/onnxruntime
 
-CXX_FLAGSarm64 = -std=gnu++17 -arch arm64
+CXX_FLAGSarm64 = -O2 -g -DNDEBUG -std=gnu++17 -arch arm64
 
-CXX_FLAGS = -std=gnu++17 -arch arm64
+CXX_FLAGS = -O2 -g -DNDEBUG -std=gnu++17 -arch arm64
 

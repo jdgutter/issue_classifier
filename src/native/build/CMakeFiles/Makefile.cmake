@@ -64,5 +64,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/inference_engine.dir/DependInfo.cmake"
+  "CMakeFiles/benchmark_engine.dir/DependInfo.cmake"
   "CMakeFiles/native_inference_py.dir/DependInfo.cmake"
   )

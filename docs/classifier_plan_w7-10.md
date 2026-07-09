@@ -54,7 +54,7 @@ This **4-Week Extension Plan** builds directly on top of your containerized Fast
 ### Weekly Tasks
 - [X] **Task 1: Post-Training Model Quantization**
     * Apply quantization techniques to your ONNX model to compress your network weights (e.g., converting 32-bit floating-point weights down to 8-bit integers (`INT8`)), optimizing execution speed and memory footprints.
-- [ ] **Task 2: Hardware Level Profiling & Latency Tracking**
+- [X] **Task 2: Hardware Level Profiling & Latency Tracking**
     * Treat the pipeline as a physical system bottleneck: Use system profiling utilities (like Linux `perf`, `gprof`, or `valgrind`) to analyze your C++ inference execution. Document the memory consumption, CPU utilization, and tail latencies ($p50$, $p95$, $p99$).
 - [ ] **Task 3: Comprehensive Regression Benchmarking**
     * Write an automated performance testing script that simulates concurrent traffic to your FastAPI app. Measure and create a markdown table comparing the pure Python baseline performance against your optimized C++ native engine pipeline under load (tracking throughput in requests per second and average latency).

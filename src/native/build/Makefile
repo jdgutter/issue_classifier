@@ -130,6 +130,19 @@ inference_engine/fast:
 .PHONY : inference_engine/fast
 
 #=============================================================================
+# Target rules for targets named benchmark_engine
+
+# Build rule for target.
+benchmark_engine: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 benchmark_engine
+.PHONY : benchmark_engine
+
+# fast build rule for target.
+benchmark_engine/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/benchmark_engine.dir/build.make CMakeFiles/benchmark_engine.dir/build
+.PHONY : benchmark_engine/fast
+
+#=============================================================================
 # Target rules for targets named native_inference_py
 
 # Build rule for target.
@@ -141,6 +154,30 @@ native_inference_py: cmake_check_build_system
 native_inference_py/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/native_inference_py.dir/build.make CMakeFiles/native_inference_py.dir/build
 .PHONY : native_inference_py/fast
+
+benchmark_engine.o: benchmark_engine.cpp.o
+.PHONY : benchmark_engine.o
+
+# target to build an object file
+benchmark_engine.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/benchmark_engine.dir/build.make CMakeFiles/benchmark_engine.dir/benchmark_engine.cpp.o
+.PHONY : benchmark_engine.cpp.o
+
+benchmark_engine.i: benchmark_engine.cpp.i
+.PHONY : benchmark_engine.i
+
+# target to preprocess a source file
+benchmark_engine.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/benchmark_engine.dir/build.make CMakeFiles/benchmark_engine.dir/benchmark_engine.cpp.i
+.PHONY : benchmark_engine.cpp.i
+
+benchmark_engine.s: benchmark_engine.cpp.s
+.PHONY : benchmark_engine.s
+
+# target to generate assembly for a file
+benchmark_engine.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/benchmark_engine.dir/build.make CMakeFiles/benchmark_engine.dir/benchmark_engine.cpp.s
+.PHONY : benchmark_engine.cpp.s
 
 binding.o: binding.cpp.o
 .PHONY : binding.o
@@ -198,8 +235,12 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... benchmark_engine"
 	@echo "... inference_engine"
 	@echo "... native_inference_py"
+	@echo "... benchmark_engine.o"
+	@echo "... benchmark_engine.i"
+	@echo "... benchmark_engine.s"
 	@echo "... binding.o"
 	@echo "... binding.i"
 	@echo "... binding.s"

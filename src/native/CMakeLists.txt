@@ -61,6 +61,11 @@ add_executable(inference_engine inference_engine.cpp)
 target_include_directories(inference_engine PRIVATE ${ONNXRUNTIME_INCLUDE_DIR})
 target_link_libraries(inference_engine PRIVATE ${ONNXRUNTIME_LIBRARY})
 
+# Add the compiled benchmark target
+add_executable(benchmark_engine benchmark_engine.cpp)
+target_include_directories(benchmark_engine PRIVATE ${ONNXRUNTIME_INCLUDE_DIR})
+target_link_libraries(benchmark_engine PRIVATE ${ONNXRUNTIME_LIBRARY})
+
 # Add the pybind11 python module
 pybind11_add_module(native_inference_py binding.cpp)
 target_include_directories(native_inference_py PRIVATE ${ONNXRUNTIME_INCLUDE_DIR})

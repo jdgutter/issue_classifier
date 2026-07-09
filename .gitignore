@@ -21,6 +21,8 @@ mlruns/
 *.pt
 *.onnx*
 models/
+src/native/build/
+*.txt
 
 # Environments
 .env

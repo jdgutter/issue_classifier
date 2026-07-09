@@ -813,7 +813,6 @@ CMakeFiles/native_inference_py.dir/binding.cpp.o: \
   /Library/Frameworks/Python.framework/Versions/3.13/include/python3.13/pyconfig.h \
   /Library/Frameworks/Python.framework/Versions/3.13/include/python3.13/pymacconfig.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/assert.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_assert.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_static_assert.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/inttypes.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/21/include/inttypes.h \

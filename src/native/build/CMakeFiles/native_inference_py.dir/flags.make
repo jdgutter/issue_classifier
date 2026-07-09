@@ -6,7 +6,7 @@ CXX_DEFINES = -Dnative_inference_py_EXPORTS
 
 CXX_INCLUDES = -I/opt/homebrew/include/onnxruntime -isystem /Users/jgutter/Documents/coding/ml_projects/github_issue_classifier/.venv/lib/python3.13/site-packages/pybind11/include -isystem /Library/Frameworks/Python.framework/Versions/3.13/include/python3.13
 
-CXX_FLAGSarm64 = -std=gnu++17 -arch arm64 -fPIC -fvisibility=hidden -flto
+CXX_FLAGSarm64 = -O2 -g -DNDEBUG -std=gnu++17 -arch arm64 -fPIC -fvisibility=hidden
 
-CXX_FLAGS = -std=gnu++17 -arch arm64 -fPIC -fvisibility=hidden -flto
+CXX_FLAGS = -O2 -g -DNDEBUG -std=gnu++17 -arch arm64 -fPIC -fvisibility=hidden
 

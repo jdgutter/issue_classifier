@@ -64,11 +64,13 @@ CMAKE_BINARY_DIR = /Users/jgutter/Documents/coding/ml_projects/github_issue_clas
 
 # The main recursive "all" target.
 all: CMakeFiles/inference_engine.dir/all
+all: CMakeFiles/benchmark_engine.dir/all
 all: CMakeFiles/native_inference_py.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/inference_engine.dir/codegen
+codegen: CMakeFiles/benchmark_engine.dir/codegen
 codegen: CMakeFiles/native_inference_py.dir/codegen
 .PHONY : codegen
 
@@ -78,6 +80,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/inference_engine.dir/clean
+clean: CMakeFiles/benchmark_engine.dir/clean
 clean: CMakeFiles/native_inference_py.dir/clean
 .PHONY : clean
 
@@ -88,7 +91,7 @@ clean: CMakeFiles/native_inference_py.dir/clean
 CMakeFiles/inference_engine.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/inference_engine.dir/build.make CMakeFiles/inference_engine.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/inference_engine.dir/build.make CMakeFiles/inference_engine.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jgutter/Documents/coding/ml_projects/github_issue_classifier/src/native/build/CMakeFiles --progress-num=1,2 "Built target inference_engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jgutter/Documents/coding/ml_projects/github_issue_classifier/src/native/build/CMakeFiles --progress-num=3,4 "Built target inference_engine"
 .PHONY : CMakeFiles/inference_engine.dir/all
 
 # Build rule for subdir invocation for target.
@@ -105,7 +108,7 @@ inference_engine: CMakeFiles/inference_engine.dir/rule
 # codegen rule for target.
 CMakeFiles/inference_engine.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/inference_engine.dir/build.make CMakeFiles/inference_engine.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jgutter/Documents/coding/ml_projects/github_issue_classifier/src/native/build/CMakeFiles --progress-num=1,2 "Finished codegen for target inference_engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jgutter/Documents/coding/ml_projects/github_issue_classifier/src/native/build/CMakeFiles --progress-num=3,4 "Finished codegen for target inference_engine"
 .PHONY : CMakeFiles/inference_engine.dir/codegen
 
 # clean rule for target.
@@ -114,13 +117,45 @@ CMakeFiles/inference_engine.dir/clean:
 .PHONY : CMakeFiles/inference_engine.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/benchmark_engine.dir
+
+# All Build rule for target.
+CMakeFiles/benchmark_engine.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/benchmark_engine.dir/build.make CMakeFiles/benchmark_engine.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/benchmark_engine.dir/build.make CMakeFiles/benchmark_engine.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jgutter/Documents/coding/ml_projects/github_issue_classifier/src/native/build/CMakeFiles --progress-num=1,2 "Built target benchmark_engine"
+.PHONY : CMakeFiles/benchmark_engine.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/benchmark_engine.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jgutter/Documents/coding/ml_projects/github_issue_classifier/src/native/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/benchmark_engine.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jgutter/Documents/coding/ml_projects/github_issue_classifier/src/native/build/CMakeFiles 0
+.PHONY : CMakeFiles/benchmark_engine.dir/rule
+
+# Convenience name for target.
+benchmark_engine: CMakeFiles/benchmark_engine.dir/rule
+.PHONY : benchmark_engine
+
+# codegen rule for target.
+CMakeFiles/benchmark_engine.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/benchmark_engine.dir/build.make CMakeFiles/benchmark_engine.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jgutter/Documents/coding/ml_projects/github_issue_classifier/src/native/build/CMakeFiles --progress-num=1,2 "Finished codegen for target benchmark_engine"
+.PHONY : CMakeFiles/benchmark_engine.dir/codegen
+
+# clean rule for target.
+CMakeFiles/benchmark_engine.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/benchmark_engine.dir/build.make CMakeFiles/benchmark_engine.dir/clean
+.PHONY : CMakeFiles/benchmark_engine.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/native_inference_py.dir
 
 # All Build rule for target.
 CMakeFiles/native_inference_py.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/native_inference_py.dir/build.make CMakeFiles/native_inference_py.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/native_inference_py.dir/build.make CMakeFiles/native_inference_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jgutter/Documents/coding/ml_projects/github_issue_classifier/src/native/build/CMakeFiles --progress-num=3,4 "Built target native_inference_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jgutter/Documents/coding/ml_projects/github_issue_classifier/src/native/build/CMakeFiles --progress-num=5,6 "Built target native_inference_py"
 .PHONY : CMakeFiles/native_inference_py.dir/all
 
 # Build rule for subdir invocation for target.
@@ -137,7 +172,7 @@ native_inference_py: CMakeFiles/native_inference_py.dir/rule
 # codegen rule for target.
 CMakeFiles/native_inference_py.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/native_inference_py.dir/build.make CMakeFiles/native_inference_py.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jgutter/Documents/coding/ml_projects/github_issue_classifier/src/native/build/CMakeFiles --progress-num=3,4 "Finished codegen for target native_inference_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jgutter/Documents/coding/ml_projects/github_issue_classifier/src/native/build/CMakeFiles --progress-num=5,6 "Finished codegen for target native_inference_py"
 .PHONY : CMakeFiles/native_inference_py.dir/codegen
 
 # clean rule for target.
