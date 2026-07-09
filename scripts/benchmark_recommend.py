@@ -2,7 +2,6 @@ import asyncio
 import time
 import subprocess
 import os
-import sys
 import numpy as np
 import httpx
 from typing import List, Dict, Any
