@@ -24,6 +24,9 @@ async def lifespan(app: FastAPI):
     vector_index = IssueVectorIndex()
     
     try:
+        import os
+        from src.ranking import IssueRankingModel
+
         vector_index.load()
         retriever = CandidateRetriever(vector_index=vector_index, embedder=embedder)
         
@@ -31,15 +34,46 @@ async def lifespan(app: FastAPI):
         checkpoint = torch.load(settings.RANKER_MODEL_PATH, map_location="cpu")
         scaling_stats = checkpoint.get("scaling_stats")
         
+        # 1. Instantiate native unquantized C++ engine
         onnx_model_path = str(settings.MODELS_DIR / "ranking_model.onnx")
-        
-        # Instantiate Recommender with the native C++ engine
-        ml_models["recommender"] = TwoStageRecommender(
+        ml_models["recommender_native"] = TwoStageRecommender(
             retriever=retriever,
             scaling_stats=scaling_stats,
             native_engine_path=onnx_model_path
         )
-        print("Two-Stage Recommender with C++ native wrapper loaded successfully.")
+        print("Two-Stage Recommender with C++ native wrapper (unquantized) loaded successfully.")
+
+        # 2. Instantiate native quantized C++ engine if available
+        quantized_onnx_path = str(settings.MODELS_DIR / "ranking_model_quantized.onnx")
+        if os.path.exists(quantized_onnx_path):
+            ml_models["recommender_quantized"] = TwoStageRecommender(
+                retriever=retriever,
+                scaling_stats=scaling_stats,
+                native_engine_path=quantized_onnx_path
+            )
+            print("Two-Stage Recommender with C++ native wrapper (quantized) loaded successfully.")
+        else:
+            print(f"Quantized ONNX model not found at {quantized_onnx_path}, quantized C++ recommender will be unavailable.")
+
+        # 3. Instantiate pure Python (PyTorch) engine
+        ranker_model = IssueRankingModel(
+            num_tags=checkpoint.get("num_tags", settings.NUM_CATEGORICAL_TAGS),
+            tag_embed_dim=checkpoint.get("tag_embed_dim", settings.CATEGORICAL_TAG_EMBED_DIM),
+            embedding_dim=checkpoint.get("embedding_dim", settings.EMBEDDING_DIMENSION)
+        )
+        ranker_model.load_state_dict(checkpoint["model_state_dict"])
+        ranker_model.eval()
+
+        ml_models["recommender_python"] = TwoStageRecommender(
+            retriever=retriever,
+            ranker_model=ranker_model,
+            scaling_stats=scaling_stats
+        )
+        print("Two-Stage Recommender with pure Python PyTorch engine loaded successfully.")
+
+        # Default fallback
+        ml_models["recommender"] = ml_models["recommender_native"]
+
     except Exception as e:
         print(f"Error loading Two-Stage Recommender: {e}. Recommender endpoint will be unavailable.")
         
@@ -71,14 +105,25 @@ def predict_issue(issue: GithubIssue):
     }
 
 @app.post("/recommend")
-def recommend_issues(query: str, k: int = 5):
+def recommend_issues(query: str, k: int = 5, engine: str = "native"):
     """
     Accepts a search query and returns the top k recommended GitHub issues
-    scored using the native C++ ranking engine.
+    scored using the native C++ ranking engine (unquantized/quantized) or pure Python engine.
     """
-    recommender = ml_models.get("recommender")
+    recommender = None
+    if engine == "native":
+        recommender = ml_models.get("recommender_native")
+    elif engine == "quantized":
+        recommender = ml_models.get("recommender_quantized")
+    elif engine == "python":
+        recommender = ml_models.get("recommender_python")
+
+    # Fallback to default native if the requested engine is not initialized
     if not recommender:
-        return {"status": "error", "message": "Recommender is not initialized."}
+        recommender = ml_models.get("recommender")
+        
+    if not recommender:
+        return {"status": "error", "message": f"Recommender engine '{engine}' is not initialized."}
         
     recommendations = recommender.recommend(
         query=query,
@@ -86,6 +131,14 @@ def recommend_issues(query: str, k: int = 5):
         k_recommendations=k
     )
     
+    # Identify which recommender was actually used
+    if recommender == ml_models.get("recommender_python"):
+        actual_engine = "python"
+    elif recommender == ml_models.get("recommender_quantized"):
+        actual_engine = "quantized"
+    else:
+        actual_engine = "native"
+        
     results = []
     for issue, score in recommendations:
         results.append({
@@ -97,5 +150,6 @@ def recommend_issues(query: str, k: int = 5):
     return {
         "query": query,
         "recommendations": results,
-        "status": "success"
+        "status": "success",
+        "engine": actual_engine
     }
