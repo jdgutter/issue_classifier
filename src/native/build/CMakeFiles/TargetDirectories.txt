@@ -1,5 +1,0 @@
-/Users/jgutter/Documents/coding/ml_projects/github_issue_classifier/src/native/build/CMakeFiles/inference_engine.dir
-/Users/jgutter/Documents/coding/ml_projects/github_issue_classifier/src/native/build/CMakeFiles/benchmark_engine.dir
-/Users/jgutter/Documents/coding/ml_projects/github_issue_classifier/src/native/build/CMakeFiles/native_inference_py.dir
-/Users/jgutter/Documents/coding/ml_projects/github_issue_classifier/src/native/build/CMakeFiles/edit_cache.dir
-/Users/jgutter/Documents/coding/ml_projects/github_issue_classifier/src/native/build/CMakeFiles/rebuild_cache.dir

@@ -22,7 +22,9 @@ mlruns/
 *.onnx*
 models/
 src/native/build/
-*.txt
+.DS_Store
+mlflow.db
+*profile.txt
 
 # Environments
 .env
